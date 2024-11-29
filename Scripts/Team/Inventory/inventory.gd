@@ -1,7 +1,7 @@
 extends PanelContainer
 
 @export var itemArray: Array[Item]
-@onready var grid_container = $MarginContainer/GridContainer
+@onready var grid_container = %GridContainer
 
 func add_item_resource() -> void:
 	for child in grid_container.get_children():
