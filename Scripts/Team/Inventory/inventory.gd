@@ -3,7 +3,7 @@ extends PanelContainer
 @export var itemArray: Array[Item]
 @onready var grid_container = $MarginContainer/GridContainer
 
-func add_item_resource(_item: Item) -> void:
+func add_item_resource() -> void:
 	for child in grid_container.get_children():
 		if child is Slot and child.slotItemResource == null:
 			var item : Item = Item.new()

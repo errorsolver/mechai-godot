@@ -1,13 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://im4mbqjmktck"]
+[gd_scene load_steps=2 format=3 uid="uid://im4mbqjmktck"]
 
-[ext_resource type="PackedScene" uid="uid://eaw61gpu6dbf" path="res://Scenes/Team/Inventory/inventory.tscn" id="1_anls0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_88tps"]
-resource_local_to_scene = true
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
+[ext_resource type="PackedScene" uid="uid://eaw61gpu6dbf" path="res://Scenes/Team/Inventory/Inventory.tscn" id="1_anls0"]
 
 [node name="TestInventory" type="Control"]
 layout_mode = 3
@@ -52,7 +45,6 @@ offset_right = 268.0
 offset_bottom = 115.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_88tps")
 
 [connection signal="pressed" from="HBoxContainer/Add" to="Inventory" method="add_item_resource"]
 [connection signal="pressed" from="HBoxContainer/Clear" to="Inventory" method="clear_all_inventory_items"]
