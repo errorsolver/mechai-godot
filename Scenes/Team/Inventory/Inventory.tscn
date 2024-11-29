@@ -1,3 +1,59 @@
-[gd_scene format=3 uid="uid://b05kfsddiyujn"]
+[gd_scene load_steps=4 format=3 uid="uid://eaw61gpu6dbf"]
 
-[node name="Inventory" type="Node"]
+[ext_resource type="StyleBox" path="res://Assets/panel_border_brown.png" id="1_hyjdh"]
+[ext_resource type="Script" path="res://Scripts/Team/Inventory/inventory.gd" id="1_ud6mf"]
+[ext_resource type="PackedScene" uid="uid://b05kfsddiyujn" path="res://Scenes/Team/Inventory/slot_container.tscn" id="2_rlwer"]
+
+[node name="Inventory" type="PanelContainer"]
+offset_right = 536.0
+offset_bottom = 224.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("1_hyjdh")
+script = ExtResource("1_ud6mf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(23.945, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+columns = 5
+
+[node name="SlotContainer" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
+
+[node name="SlotContainer2" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
+
+[node name="SlotContainer3" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
+
+[node name="SlotContainer4" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
+
+[node name="SlotContainer5" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
+
+[node name="SlotContainer6" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
+
+[node name="SlotContainer7" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
+
+[node name="SlotContainer8" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
+
+[node name="SlotContainer9" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
+
+[node name="SlotContainer10" parent="MarginContainer/GridContainer" instance=ExtResource("2_rlwer")]
+layout_mode = 2
