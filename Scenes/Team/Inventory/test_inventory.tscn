@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://im4mbqjmktck"]
+[gd_scene load_steps=5 format=3 uid="uid://im4mbqjmktck"]
 
-[ext_resource type="PackedScene" uid="uid://eaw61gpu6dbf" path="res://Scenes/Team/Inventory/inventory.tscn" id="1_anls0"]
+[ext_resource type="PackedScene" uid="uid://eaw61gpu6dbf" path="res://Scenes/Team/Inventory/Inventory.tscn" id="1_anls0"]
+[ext_resource type="PackedScene" uid="uid://dwk0pwomuyerv" path="res://Scripts/Team/Inventory/equipment/armour.tscn" id="2_d6crm"]
+
+[sub_resource type="GDScript" id="GDScript_5nbht"]
+script/source = "extends Button
+
+@onready var inventory: PanelContainer = $\"../../../../Inventory\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+
+func _on_pressed() -> void:
+	inventory.add_item_resource(null)
+"
+
+[sub_resource type="GDScript" id="GDScript_6o0gr"]
+script/source = "extends Button
+
+@export var item: PackedScene
+@onready var inventory: PanelContainer = $\"../../../../Inventory\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _pressed() -> void:
+	inventory.add_item_resource(item)
+"
 
 [node name="TestInventory" type="Control"]
 layout_mode = 3
@@ -49,12 +89,28 @@ metadata/_edit_use_anchors_ = true
 [node name="Add" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
-text = "Add Item"
+text = "Add Random"
+script = SubResource("GDScript_5nbht")
 
 [node name="Clear" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 text = "Clear Item"
 
-[connection signal="pressed" from="MarginContainer/CenterContainer/HBoxContainer/Add" to="Inventory" method="add_item_resource"]
+[node name="Add Armour" type="Button" parent="MarginContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add Armour"
+script = SubResource("GDScript_6o0gr")
+item = ExtResource("2_d6crm")
+
+[node name="Inventory2" parent="." instance=ExtResource("1_anls0")]
+layout_mode = 2
+offset_left = 1010.0
+offset_top = 601.0
+offset_right = 1546.0
+offset_bottom = 860.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/HBoxContainer/Add" to="MarginContainer/CenterContainer/HBoxContainer/Add" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer/HBoxContainer/Clear" to="Inventory" method="clear_all_inventory_items"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Equipment" load_steps=2 format=3 uid="uid://d23vtymiarw37"]
+
+[ext_resource type="Script" path="res://Scripts/Team/Inventory/Main Inventory/Helmet/helmet.gd" id="1_mhg7j"]
+
+[resource]
+script = ExtResource("1_mhg7j")
+DamageReduce = 0
+name = ""
+description = ""
+quantity = 1
+isStackable = false
+isConsumable = false
+isEquipable = false

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cvk4bbt4a46yh"]
+
+[ext_resource type="Script" path="res://Scripts/Team/Inventory/Main Inventory/Consumable/repair.gd" id="1_k7jup"]
+
+[resource]
+script = ExtResource("1_k7jup")
+repairedHP = 5

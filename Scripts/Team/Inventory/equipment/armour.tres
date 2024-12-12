@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cpj1khmr1nsrj"]
+
+[ext_resource type="Script" path="res://Scripts/Team/Inventory/Test Inventory/item.gd" id="1_2yjpa"]
+[ext_resource type="Texture2D" uid="uid://cgeyqdd5tba17" path="res://Assets/Sprites/Item/armour.png" id="2_6ngqi"]
+
+[resource]
+script = ExtResource("1_2yjpa")
+texture = ExtResource("2_6ngqi")
+name = "Armour Basic"
+description = "First armour gift"
+quantity = 1
+isStack = false
+isConsumeable = false
+isEquipable = true

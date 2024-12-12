@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://f2h5t6arului"]
+
+[ext_resource type="Resource" uid="uid://b2weg58ooq86h" path="res://Scripts/Team/Inventory/Main Inventory/Weapon/sniper.tres" id="1_p41yj"]
+
+[sub_resource type="GDScript" id="GDScript_s8g5n"]
+script/source = "extends Node2D
+
+@export var res: Resource
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	res.initAll(self)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="WeaponScene" type="Node2D"]
+position = Vector2(805, 467)
+script = SubResource("GDScript_s8g5n")
+res = ExtResource("1_p41yj")
+
+[node name="Texture" type="Sprite2D" parent="."]
+unique_name_in_owner = true

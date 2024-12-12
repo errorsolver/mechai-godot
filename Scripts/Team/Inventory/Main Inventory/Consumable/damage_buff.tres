@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b31knw15cu5bj"]
+
+[ext_resource type="Script" path="res://Scripts/Team/Inventory/Main Inventory/Consumable/damage_buff.gd" id="1_xmd4c"]
+
+[resource]
+script = ExtResource("1_xmd4c")
