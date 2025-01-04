@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cwrpjai4ppwdl"]
 
-[ext_resource type="PackedScene" uid="uid://v7yuhbcdsbxs" path="res://Scenes/Team/Inventory/Player/player_inventory.tscn" id="2_4hg5v"]
-[ext_resource type="PackedScene" uid="uid://c6nd26nlech6y" path="res://Scenes/Team/Inventory/Robot/robot_1_inventory.tscn" id="3_f4b6s"]
-[ext_resource type="PackedScene" uid="uid://bavhbbvajf03w" path="res://Scenes/Team/Inventory/Robot/robot_2_inventory.tscn" id="4_7p02r"]
-[ext_resource type="PackedScene" uid="uid://blr6jg55lnv1h" path="res://Scenes/Team/Inventory/Robot/robot_3_inventory.tscn" id="4_o8gs6"]
-[ext_resource type="Script" path="res://Scripts/Team/Inventory/Test Inventory/robot/robot_inventory.gd" id="9_nrbqp"]
+[ext_resource type="PackedScene" uid="uid://v7yuhbcdsbxs" path="res://Scenes/Team/Inventory/Player/player_inventory.tscn" id="1_kehet"]
+[ext_resource type="PackedScene" uid="uid://c6nd26nlech6y" path="res://Scenes/Team/Inventory/Robot/robot_1_inventory.tscn" id="2_ngbfp"]
+[ext_resource type="Script" path="res://Scripts/Team/Inventory/Test Inventory/robot/robot_inventory.gd" id="3_cl34u"]
+[ext_resource type="PackedScene" uid="uid://bavhbbvajf03w" path="res://Scenes/Team/Inventory/Robot/robot_2_inventory.tscn" id="4_pitci"]
+[ext_resource type="PackedScene" uid="uid://blr6jg55lnv1h" path="res://Scenes/Team/Inventory/Robot/robot_3_inventory.tscn" id="5_kts4c"]
 
 [sub_resource type="GDScript" id="GDScript_5nbht"]
 script/source = "extends Button
@@ -67,7 +67,7 @@ custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 text = "Clear Item"
 
-[node name="PlayerInventory" parent="." instance=ExtResource("2_4hg5v")]
+[node name="PlayerInventory" parent="." instance=ExtResource("1_kehet")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -82,11 +82,11 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Robot1Inventory" parent="." instance=ExtResource("3_f4b6s")]
+[node name="Robot1Inventory" parent="." instance=ExtResource("2_ngbfp")]
 layout_mode = 1
-script = ExtResource("9_nrbqp")
+script = ExtResource("3_cl34u")
 
-[node name="Robot2Inventory" parent="." instance=ExtResource("4_7p02r")]
+[node name="Robot2Inventory" parent="." instance=ExtResource("4_pitci")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -94,9 +94,9 @@ anchor_right = 1.0
 offset_left = -536.0
 offset_right = 0.0
 grow_horizontal = 0
-script = ExtResource("9_nrbqp")
+script = ExtResource("3_cl34u")
 
-[node name="Robot3Inventory" parent="." instance=ExtResource("4_o8gs6")]
+[node name="Robot3Inventory" parent="." instance=ExtResource("5_kts4c")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -109,6 +109,6 @@ offset_right = 268.0
 offset_bottom = 129.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("9_nrbqp")
+script = ExtResource("3_cl34u")
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/HBoxContainer/Add" to="MarginContainer/CenterContainer/HBoxContainer/Add" method="_on_pressed"]
