@@ -1,15 +1,16 @@
-@tool
-
 class_name Armour
 extends Item
 
 @export_group('Damage Reduction')
-@export_enum('aggresive', 'Balance', 'Defensive') var type: String = ''
 @export var SHORT = 2
 @export var LAUNCHER = 1
 @export var SNIPER = 0
 
 func _ready() -> void :
+	isStackable = false
+	isConsumable = false
+	isEquipable = true
+	
 	var dmgBlocked: int = block('short', 10)
 	print(dmgBlocked)
 

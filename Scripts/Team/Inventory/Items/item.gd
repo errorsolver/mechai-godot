@@ -3,8 +3,6 @@
 class_name Item
 extends Resource
 
-#var maxImgSize: int = 16
-
 @export_group('Image')
 @export var texture: CompressedTexture2D = null
 @export_group('Property')
@@ -27,23 +25,3 @@ func initAll(node: Node) -> void:
 func substract(totalUsed: int):
 	quantity -= totalUsed
 	
-
-
-
-
-
-
-
-
-
-
-
-
-#@onready var image: Sprite2D = $Image
-#
-#func _ready() -> void:
-	#image.texture = texture
-	#
-	#var original_size = texture.get_size()
-	#var scale_factor = min(64 / original_size.x, 64 / original_size.y)
-	#image.scale = Vector2(scale_factor, scale_factor)

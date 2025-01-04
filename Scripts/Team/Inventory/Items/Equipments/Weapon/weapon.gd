@@ -1,5 +1,3 @@
-@tool
-
 class_name Weapon
 extends Item
 
@@ -12,6 +10,10 @@ var shape: String
 var stamina_consumption: int
 
 func _ready() -> void:
+	isStackable = false
+	isConsumable = false
+	isEquipable = true
+	
 	match type:
 		"Short":
 			damage = 3
@@ -28,3 +30,6 @@ func _ready() -> void:
 			range = 6
 			shape = 'Cross'
 			stamina_consumption = 1
+
+func get_damage() -> Array:
+	return [damage, range, shape, stamina_consumption]

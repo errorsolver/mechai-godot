@@ -7,8 +7,8 @@
 script = ExtResource("1_k7jup")
 repaired_health = 5
 texture = ExtResource("2_ht8ml")
-name = "Nano Regen"
-description = ""
+name = "NanoRegen"
+description = "Repair your robot"
 quantity = 0
 isStackable = false
 isConsumable = false

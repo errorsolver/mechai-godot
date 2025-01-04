@@ -5,14 +5,13 @@
 
 [resource]
 script = ExtResource("1_ayfu6")
-type = ""
 SHORT = 2
 LAUNCHER = 1
 SNIPER = 0
 texture = ExtResource("2_qqjts")
 name = "CoreGuard"
-description = "First armour"
-quantity = 1
+description = "Body protector"
+quantity = 2
 isStackable = false
 isConsumable = false
-isEquipable = false
+isEquipable = true

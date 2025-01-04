@@ -1,29 +1,36 @@
-extends PanelContainer
+class_name Inventory
+extends Node
 
-@export var itemArray: Array[ItemTest]
+@export var inventoryName: String = ''
+@export var itemArray: Array[Item] = []
+@export var max_slots: int = 10
 
 @onready var grid_container = %GridContainer
 
-func add_item_resource(input: Item) -> void:
-	for child in grid_container.get_children():
-		# TODO: Add loop check item name
-		if child is Slot and child.slotItemResource == null:
-			var item: Item = input
-			
-			# custom item --------------------------
-			if input == null:
-				item = Item.new()
-				item.texture = load("res://icon.svg")
-				item.quantity = randi_range(1, 20)
-			# ---------------------------------------
-			
-			itemArray.append(item)
-			child.set_item(item)
-			return
+func _ready() -> void:
+	itemArray.resize(max_slots)
+	print('Inventory array size: ', itemArray.size())
+	print('Inventory item list: ', list_items())
 
-func clear_all_inventory_items() -> void:
-	itemArray.clear()
-	
-	for child in grid_container.get_children():
-		if child is Slot:
-			child.set_data_empty()
+func add_item(item: Item) -> bool:
+	if itemArray.size() < max_slots:
+		itemArray.append(item)
+		print("Item added: ", item.item_name)
+		return true
+	else:
+		print("Inventory full! Cannot add item: ", item.item_name)
+		return false
+
+func remove_item(item: Item) -> bool:
+	if item in itemArray:
+		itemArray.erase(item)
+		print("Item removed: ", item.item_name)
+		return true
+	else:
+		print("Item not found: ", item.item_name)
+		return false
+
+func list_items():
+	print("Inventory List:")
+	#for i in itemArray:
+		#print("- ", i.item_name, " (Value: " i.item_value, ")")

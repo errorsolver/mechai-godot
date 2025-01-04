@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_mhg7j")
-type = ""
+type = "Balance"
 texture = ExtResource("2_6juhs")
 name = "HeadGear"
-description = ""
-quantity = 1
+description = "Head protector"
+quantity = 0
 isStackable = false
 isConsumable = false
-isEquipable = false
+isEquipable = true

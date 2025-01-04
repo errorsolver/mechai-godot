@@ -1,17 +1,23 @@
 class_name Slot
 extends PanelContainer
 
-@export var slotItemResource: ItemTest = null
+@export var slotItemResource: Item = null
+@onready var texture_rect: TextureRect = %TextureRect
+@onready var label: Label = %Label
 
-func set_item(item_resource: ItemTest) -> void:
+func set_item(item_resource: Item) -> void:
 	slotItemResource = item_resource
-	%TextureRect.texture = slotItemResource.texture
-	%Label.text = str(slotItemResource.quantity)
+	texture_rect.texture = slotItemResource.texture
+	texture_rect.tooltip_text = slotItemResource.description
+	texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	label.text = str(slotItemResource.quantity)
 
 func set_data_empty() -> void:
-	%TextureRect.texture = null
+	texture_rect.texture = null
+	texture_rect.tooltip_text = ""
 	slotItemResource = null
-	%Label.text = ""
+	label.text = ""
 
 func _get_drag_data(_at_position):
 	if not slotItemResource:
