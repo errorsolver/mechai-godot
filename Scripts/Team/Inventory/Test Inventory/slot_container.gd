@@ -60,7 +60,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 func danger_notif() -> void:
 	tween = get_tree().create_tween()
-	tween.tween_property(texture_rect, "modulate", Color.RED, 0.2)
+	tween.tween_property(texture_rect, "modulate", Color.INDIAN_RED, 0.2)
 	tween.tween_property(texture_rect, "modulate", Color(1, 1, 1, 1), 0.4)
 
 func isZero(data: Variant) -> bool:
