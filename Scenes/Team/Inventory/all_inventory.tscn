@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg1y0m6aq35yp"]
+
+[ext_resource type="PackedScene" uid="uid://v7yuhbcdsbxs" path="res://Scenes/Team/Inventory/Player/player_inventory.tscn" id="1_xo7ws"]
+[ext_resource type="PackedScene" uid="uid://c6nd26nlech6y" path="res://Scenes/Team/Inventory/Robot/robot_1_inventory.tscn" id="2_riioo"]
+[ext_resource type="PackedScene" uid="uid://bavhbbvajf03w" path="res://Scenes/Team/Inventory/Robot/robot_2_inventory.tscn" id="3_35uow"]
+[ext_resource type="PackedScene" uid="uid://blr6jg55lnv1h" path="res://Scenes/Team/Inventory/Robot/robot_3_inventory.tscn" id="4_p5swv"]
+
+[node name="AllInventory" type="Node2D"]
+
+[node name="Inventory" parent="." instance=ExtResource("1_xo7ws")]
+offset_left = 553.0
+offset_top = 596.0
+offset_right = 1089.0
+offset_bottom = 855.0
+
+[node name="Inventory2" parent="." instance=ExtResource("2_riioo")]
+offset_left = 33.0
+offset_top = 23.0
+offset_right = 569.0
+offset_bottom = 282.0
+
+[node name="Inventory3" parent="." instance=ExtResource("3_35uow")]
+offset_left = 564.0
+offset_top = 295.0
+offset_right = 1100.0
+offset_bottom = 554.0
+
+[node name="Inventory4" parent="." instance=ExtResource("4_p5swv")]
+offset_left = 1047.0
+offset_top = 28.0
+offset_right = 1583.0
+offset_bottom = 287.0
