@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://wc811lxvo0yc"]
+
+[ext_resource type="Resource" uid="uid://oarj34mn78n8" path="res://Scripts/Team/Inventory/Items/Equipments/Armor/armour.tres" id="1_4nhop"]
+[ext_resource type="Texture2D" uid="uid://cgeyqdd5tba17" path="res://Assets/Sprites/Item/armour.png" id="2_tv34u"]
+
+[sub_resource type="GDScript" id="GDScript_u8rda"]
+script/source = "extends Node2D
+
+@export var res: Resource
+
+func _ready() -> void:
+	%Texture.texture = res.texture
+"
+
+[node name="Armour" type="Node2D"]
+script = SubResource("GDScript_u8rda")
+res = ExtResource("1_4nhop")
+
+[node name="Texture" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(823, 450)
+texture = ExtResource("2_tv34u")
