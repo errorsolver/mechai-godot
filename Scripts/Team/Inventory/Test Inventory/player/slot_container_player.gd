@@ -1,20 +1,24 @@
-class_name Slot
+class_name PlayerSlot
 extends PanelContainer
 
 @export var slotItemResource: Item = null
 @onready var texture_rect: TextureRect = %TextureRect
 @onready var label: Label = %Label
+@onready var player_inventory: PanelContainer = $Player_Inventory
 
-#var itemArray
+var itemArray
 
 var tween: Tween
 
 func _ready():
+	pass
+	#print(get_tree().get_root().get_children(''))
+	#player_inventory = get_tree().get_root().get_children()
 	#itemArray = get_tree().get_root().get_node("Inventory").itemArray
 	#itemArray = get_tree().get_root().get_node("Inventory").itemArray
 	#print(get_tree().get_root())
 	#print(itemArray)
-	print(self.slotItemResource)
+	#print(self.slotItemResource)
 
 func set_item(item_resource: Item) -> void:
 	slotItemResource = item_resource
@@ -36,6 +40,8 @@ func _get_drag_data(_at_position: Vector2):
 	
 	if isZero(slotItemResource.quantity):
 		return
+		
+	slotItemResource.quantity -= 1
 	
 	var preview_texture = TextureRect.new()
 	
@@ -48,32 +54,27 @@ func _get_drag_data(_at_position: Vector2):
 	
 	set_drag_preview(preview)
 	
+	print(player_inventory)
 	return self
 
 func _can_drop_data(_at_position: Vector2, _data: Variant):
 	#print('_data can: ', _data.name);
-	return _data is PlayerSlot or Slot
+	return _data is PlayerSlot
 
-func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	data.slotItemResource.quantity = 1
-	if slotItemResource == null:
-		set_item(data.slotItemResource)
-		if data is Slot:
-			data.set_data_empty()
-		#Pengurangan kuantitas dari ke Player
-	else:
-		if data is PlayerSlot:
-			return
-			
-		var label_text = data.get_node('%Label')
-		var temp := slotItemResource
-		
-		if isZero(temp.quantity):
-			return
-		
-		set_item(data.slotItemResource)
-		data.set_item(temp)
-	#slotItemResource.quantity += 1
+#Tidak berguna
+#func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	#if slotItemResource == null:
+		#set_item(data.slotItemResource)
+		#data.set_data_empty()
+	#else:
+		#var label_text = data.get_node('%Label')
+		#var temp := slotItemResource
+		#
+		#if isZero(temp.quantity):
+			#return
+		#
+		#set_item(data.slotItemResource)
+		#data.set_item(temp)
 
 func danger_notif() -> void:
 	tween = get_tree().create_tween()

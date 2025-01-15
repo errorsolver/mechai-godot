@@ -12,7 +12,6 @@ offset_left = 553.0
 offset_top = 596.0
 offset_right = 1089.0
 offset_bottom = 855.0
-tmpItemArray = null
 
 [node name="Robot_Inventory1" parent="." instance=ExtResource("2_riioo")]
 offset_left = 33.0

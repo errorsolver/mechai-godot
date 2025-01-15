@@ -3,6 +3,7 @@ extends Node
 
 @export var inventoryName: String = ''
 @export var itemArray: Array[Item] = []
+@export var tmpItemArray: Array[Item] = []
 @export var max_slots: int = 10
 
 @onready var grid_container = %GridContainer
@@ -12,6 +13,11 @@ func _ready() -> void:
 	print('Inventory array size: ', itemArray.size())
 	print('Inventory item list: ', list_items())
 
+func _process(delta: float) -> void:
+	if tmpItemArray != itemArray:
+		print(inventoryName, 'changed')
+		tmpItemArray = itemArray
+		
 func add_item(item: Item) -> bool:
 	if itemArray.size() < max_slots:
 		itemArray.append(item)
