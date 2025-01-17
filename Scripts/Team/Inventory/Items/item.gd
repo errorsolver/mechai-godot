@@ -23,3 +23,5 @@ func initAll(node: Node) -> void:
 func substract(totalUsed: int):
 	quantity -= totalUsed
 	
+func str() -> String:
+	return "Item Name: " + name + ", Value: " + str(quantity)

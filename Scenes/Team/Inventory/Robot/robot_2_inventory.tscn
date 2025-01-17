@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Team/Inventory/Test Inventory/inventory.gd" id="1_6ps7i"]
 [ext_resource type="Script" path="res://Scripts/Team/Inventory/Items/item.gd" id="2_n0a5k"]
-[ext_resource type="PackedScene" uid="uid://b05kfsddiyujn" path="res://Scenes/Team/Inventory/slot_container.tscn" id="2_osbyn"]
+[ext_resource type="PackedScene" uid="uid://b05kfsddiyujn" path="res://Scenes/Team/Inventory/Robot/slot_container.tscn" id="2_osbyn"]
 
 [node name="Inventory" type="PanelContainer"]
 offset_right = 536.0

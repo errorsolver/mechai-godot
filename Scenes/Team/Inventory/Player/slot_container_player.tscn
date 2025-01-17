@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Team/Inventory/Test Inventory/player/slot_container_player.gd" id="1_h14la"]
 
 [node name="SlotContainerPlayer" type="PanelContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(60, 60)
 offset_right = 100.0
 offset_bottom = 100.0
 size_flags_vertical = 0

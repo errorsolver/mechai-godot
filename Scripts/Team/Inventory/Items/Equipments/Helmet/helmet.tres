@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_mhg7j")
-type = "Balance"
+type = "Defensive"
 texture = ExtResource("2_6juhs")
 name = "HeadGear"
 description = "Head protector"

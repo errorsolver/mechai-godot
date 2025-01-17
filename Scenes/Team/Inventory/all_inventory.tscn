@@ -1,33 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg1y0m6aq35yp"]
+[gd_scene load_steps=3 format=3 uid="uid://dg1y0m6aq35yp"]
 
 [ext_resource type="PackedScene" uid="uid://v7yuhbcdsbxs" path="res://Scenes/Team/Inventory/Player/inventory_player.tscn" id="1_xo7ws"]
 [ext_resource type="PackedScene" uid="uid://c6nd26nlech6y" path="res://Scenes/Team/Inventory/Robot/robot_1_inventory.tscn" id="2_riioo"]
-[ext_resource type="PackedScene" uid="uid://bavhbbvajf03w" path="res://Scenes/Team/Inventory/Robot/robot_2_inventory.tscn" id="3_35uow"]
-[ext_resource type="PackedScene" uid="uid://blr6jg55lnv1h" path="res://Scenes/Team/Inventory/Robot/robot_3_inventory.tscn" id="4_p5swv"]
 
 [node name="AllInventory" type="Node2D"]
 
 [node name="Player_Inventory" parent="." instance=ExtResource("1_xo7ws")]
-offset_left = 553.0
-offset_top = 596.0
-offset_right = 1089.0
-offset_bottom = 855.0
-tmpItemArray = null
 
 [node name="Robot_Inventory1" parent="." instance=ExtResource("2_riioo")]
-offset_left = 33.0
-offset_top = 23.0
-offset_right = 569.0
-offset_bottom = 282.0
+offset_left = 420.0
+offset_top = 74.0
+offset_right = 756.0
+offset_bottom = 253.0
 
-[node name="Robot_Inventory2" parent="." instance=ExtResource("3_35uow")]
-offset_left = 529.0
-offset_top = 310.0
-offset_right = 1065.0
-offset_bottom = 569.0
-
-[node name="Robot_Inventory3" parent="." instance=ExtResource("4_p5swv")]
-offset_left = 1047.0
-offset_top = 28.0
-offset_right = 1583.0
-offset_bottom = 287.0
+[connection signal="addedItem" from="Robot_Inventory1" to="Player_Inventory" method="_on_robot_inventory_1_added_item"]

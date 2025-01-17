@@ -4,21 +4,8 @@ extends PanelContainer
 @export var slotItemResource: Item = null
 @onready var texture_rect: TextureRect = %TextureRect
 @onready var label: Label = %Label
-@onready var player_inventory: PanelContainer = $Player_Inventory
-
-var itemArray
 
 var tween: Tween
-
-func _ready():
-	pass
-	#print(get_tree().get_root().get_children(''))
-	#player_inventory = get_tree().get_root().get_children()
-	#itemArray = get_tree().get_root().get_node("Inventory").itemArray
-	#itemArray = get_tree().get_root().get_node("Inventory").itemArray
-	#print(get_tree().get_root())
-	#print(itemArray)
-	#print(self.slotItemResource)
 
 func set_item(item_resource: Item) -> void:
 	slotItemResource = item_resource
@@ -35,46 +22,29 @@ func set_data_empty() -> void:
 	label.text = ""
 
 func _get_drag_data(_at_position: Vector2):
+	#print('_get drag data')
 	if not slotItemResource:
 		return
-	
 	if isZero(slotItemResource.quantity):
 		return
 		
-	slotItemResource.quantity -= 1
-	
 	var preview_texture = TextureRect.new()
-	
 	preview_texture.texture = %TextureRect.texture
 	preview_texture.expand_mode = 1
 	preview_texture.size = Vector2(49, 49)
 	
 	var preview = Control.new()
 	preview.add_child(preview_texture)
-	
 	set_drag_preview(preview)
 	
-	print(player_inventory)
+	#slotItemResource.quantity -= 1
+	
 	return self
 
-func _can_drop_data(_at_position: Vector2, _data: Variant):
-	#print('_data can: ', _data.name);
-	return _data is PlayerSlot
-
-#Tidak berguna
-#func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	#if slotItemResource == null:
-		#set_item(data.slotItemResource)
-		#data.set_data_empty()
-	#else:
-		#var label_text = data.get_node('%Label')
-		#var temp := slotItemResource
-		#
-		#if isZero(temp.quantity):
-			#return
-		#
-		#set_item(data.slotItemResource)
-		#data.set_item(temp)
+#func _can_drop_data(_at_position: Vector2, _data: Variant):
+	#print('can drop data')
+	#print("Data slot: ", _data)
+	#return _data is PlayerSlot
 
 func danger_notif() -> void:
 	tween = get_tree().create_tween()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://blr6jg55lnv1h"]
 
 [ext_resource type="Script" path="res://Scripts/Team/Inventory/Test Inventory/inventory.gd" id="1_ao73o"]
-[ext_resource type="PackedScene" uid="uid://b05kfsddiyujn" path="res://Scenes/Team/Inventory/slot_container.tscn" id="2_d6ih4"]
+[ext_resource type="PackedScene" uid="uid://b05kfsddiyujn" path="res://Scenes/Team/Inventory/Robot/slot_container.tscn" id="2_d6ih4"]
 [ext_resource type="Script" path="res://Scripts/Team/Inventory/Items/item.gd" id="2_h0wck"]
 
 [node name="Inventory" type="PanelContainer"]

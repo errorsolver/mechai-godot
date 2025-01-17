@@ -11,14 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://b8bc31r37uamy" path="res://Scenes/Team/Inventory/Player/slot_container_player.tscn" id="9_jh2yu"]
 
 [node name="PlayerInventory" type="PanelContainer"]
-offset_right = 536.0
-offset_bottom = 259.0
+offset_right = 208.0
+offset_bottom = 307.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_61n50")
 inventoryName = "Player Inventory"
 itemArray = Array[ExtResource("2_gt7ec")]([ExtResource("3_tcud0"), ExtResource("4_ma1y4"), ExtResource("5_hf68c"), ExtResource("6_36fw5"), ExtResource("7_1n12f"), ExtResource("8_h7n77")])
-tmpItemArray = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(23.945, 0)
@@ -50,7 +49,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-columns = 5
+columns = 3
 
 [node name="SlotContainer" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("9_jh2yu")]
 layout_mode = 2

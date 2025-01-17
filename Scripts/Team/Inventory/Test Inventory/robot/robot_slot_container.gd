@@ -1,20 +1,31 @@
 class_name Slot
 extends PanelContainer
 
+#signal isDroped
+
 @export var slotItemResource: Item = null
 @onready var texture_rect: TextureRect = %TextureRect
 @onready var label: Label = %Label
+#@onready var player_inventory: PanelContainer = $Player_Inventory
 
 #var itemArray
 
 var tween: Tween
 
-func _ready():
+#func _ready():
+	#pass
+	#print('playerinpentory: ', player_inventory.name)
 	#itemArray = get_tree().get_root().get_node("Inventory").itemArray
 	#itemArray = get_tree().get_root().get_node("Inventory").itemArray
 	#print(get_tree().get_root())
 	#print(itemArray)
-	print(self.slotItemResource)
+	#print(self.slotItemResource)
+
+func _process(delta: float) -> void:
+	var dropped = get_viewport().gui_is_drag_successful()
+	#print("dropped: ", dropped)
+	#if slotItemResource != null:
+		#print('item: ', slotItemResource)
 
 func set_item(item_resource: Item) -> void:
 	slotItemResource = item_resource
@@ -51,16 +62,17 @@ func _get_drag_data(_at_position: Vector2):
 	return self
 
 func _can_drop_data(_at_position: Vector2, _data: Variant):
-	#print('_data can: ', _data.name);
+	#print('_data can: ', _data.name)
 	return _data is PlayerSlot or Slot
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
-	data.slotItemResource.quantity = 1
+	data.slotItemResource.quantity -= 1
 	if slotItemResource == null:
-		set_item(data.slotItemResource)
+		var test = data.duplicate()
+		print('test: ', test.slotItemResource.quantity)
+		set_item(test.slotItemResource)
 		if data is Slot:
 			data.set_data_empty()
-		#Pengurangan kuantitas dari ke Player
 	else:
 		if data is PlayerSlot:
 			return
@@ -73,6 +85,8 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		
 		set_item(data.slotItemResource)
 		data.set_item(temp)
+		
+	#emit_signal("isDroped")
 	#slotItemResource.quantity += 1
 
 func danger_notif() -> void:
