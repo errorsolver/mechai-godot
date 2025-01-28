@@ -10,6 +10,7 @@ offset_bottom = 179.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_av3v1")
+inventoryName = "Robot 1 Inventory"
 itemArray = Array[ExtResource("2_7xpki")]([null, null, null, null, null, null, null, null, null, null])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

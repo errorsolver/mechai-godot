@@ -32,8 +32,14 @@ func update_inventory_ui() -> void:
 				
 				child.set_item(item)
 				break
-		print('item: ',item.str())
 
 func _on_robot_inventory_1_added_item() -> void:
-	print('_on_robot_inventory_1_added_item')
+	update_inventory_ui()
+
+
+func _on_robot_inventory_2_added_item() -> void:
+	update_inventory_ui()
+
+
+func _on_robot_inventory_3_added_item() -> void:
 	update_inventory_ui()

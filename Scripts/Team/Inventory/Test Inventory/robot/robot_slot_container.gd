@@ -12,20 +12,8 @@ extends PanelContainer
 
 var tween: Tween
 
-#func _ready():
-	#pass
-	#print('playerinpentory: ', player_inventory.name)
-	#itemArray = get_tree().get_root().get_node("Inventory").itemArray
-	#itemArray = get_tree().get_root().get_node("Inventory").itemArray
-	#print(get_tree().get_root())
-	#print(itemArray)
-	#print(self.slotItemResource)
-
 func _process(delta: float) -> void:
 	var dropped = get_viewport().gui_is_drag_successful()
-	#print("dropped: ", dropped)
-	#if slotItemResource != null:
-		#print('item: ', slotItemResource)
 
 func set_item(item_resource: Item) -> void:
 	slotItemResource = item_resource
@@ -62,14 +50,12 @@ func _get_drag_data(_at_position: Vector2):
 	return self
 
 func _can_drop_data(_at_position: Vector2, _data: Variant):
-	#print('_data can: ', _data.name)
 	return _data is PlayerSlot or Slot
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	data.slotItemResource.quantity -= 1
 	if slotItemResource == null:
 		var test = data.duplicate()
-		print('test: ', test.slotItemResource.quantity)
 		set_item(test.slotItemResource)
 		if data is Slot:
 			data.set_data_empty()
@@ -85,9 +71,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		
 		set_item(data.slotItemResource)
 		data.set_item(temp)
-		
-	#emit_signal("isDroped")
-	#slotItemResource.quantity += 1
 
 func danger_notif() -> void:
 	tween = get_tree().create_tween()

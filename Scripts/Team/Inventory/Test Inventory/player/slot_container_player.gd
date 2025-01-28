@@ -9,6 +9,7 @@ var tween: Tween
 
 func set_item(item_resource: Item) -> void:
 	slotItemResource = item_resource
+	print(texture_rect.texture)
 	texture_rect.texture = slotItemResource.texture
 	texture_rect.tooltip_text = slotItemResource.description
 	texture_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -22,7 +23,6 @@ func set_data_empty() -> void:
 	label.text = ""
 
 func _get_drag_data(_at_position: Vector2):
-	#print('_get drag data')
 	if not slotItemResource:
 		return
 	if isZero(slotItemResource.quantity):
@@ -37,14 +37,7 @@ func _get_drag_data(_at_position: Vector2):
 	preview.add_child(preview_texture)
 	set_drag_preview(preview)
 	
-	#slotItemResource.quantity -= 1
-	
 	return self
-
-#func _can_drop_data(_at_position: Vector2, _data: Variant):
-	#print('can drop data')
-	#print("Data slot: ", _data)
-	#return _data is PlayerSlot
 
 func danger_notif() -> void:
 	tween = get_tree().create_tween()
