@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://buv0wj4n00mkk"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/Slot/Robot/robot_inventory.gd" id="1_0kdd0"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Slot/Robot/robot_slot.gd" id="2_8l0m8"]
+
+[node name="RobotInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0kdd0")
+
+[node name="RobotSlotContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 2
+
+[node name="RobotSlot" type="PanelContainer" parent="RobotSlotContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("2_8l0m8")
+
+[node name="ItemImage" type="TextureRect" parent="RobotSlotContainer/RobotSlot"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="ItemName" type="Label" parent="RobotSlotContainer/RobotSlot"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="RobotSlot2" type="PanelContainer" parent="RobotSlotContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("2_8l0m8")
+slot_position = 1
+
+[node name="ItemImage" type="TextureRect" parent="RobotSlotContainer/RobotSlot2"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="ItemName" type="Label" parent="RobotSlotContainer/RobotSlot2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="RobotSlot3" type="PanelContainer" parent="RobotSlotContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("2_8l0m8")
+slot_position = 2
+
+[node name="ItemImage" type="TextureRect" parent="RobotSlotContainer/RobotSlot3"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="ItemName" type="Label" parent="RobotSlotContainer/RobotSlot3"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="RobotSlot4" type="PanelContainer" parent="RobotSlotContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("2_8l0m8")
+slot_position = 3
+
+[node name="ItemImage" type="TextureRect" parent="RobotSlotContainer/RobotSlot4"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="ItemName" type="Label" parent="RobotSlotContainer/RobotSlot4"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8

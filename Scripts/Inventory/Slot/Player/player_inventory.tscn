@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://vjvp0p86yni4"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/Slot/Player/player_inventory.gd" id="1_ca3ao"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Slot/Player/player_slot.gd" id="2_20vlf"]
+
+[node name="PlayerInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ca3ao")
+
+[node name="PlayerSlotContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 3
+
+[node name="PlayerSlot" type="PanelContainer" parent="PlayerSlotContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("2_20vlf")
+
+[node name="ItemImage" type="TextureRect" parent="PlayerSlotContainer/PlayerSlot"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="ItemName" type="Label" parent="PlayerSlotContainer/PlayerSlot"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="PlayerSlot2" type="PanelContainer" parent="PlayerSlotContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("2_20vlf")
+slot_position = 1
+
+[node name="ItemImage" type="TextureRect" parent="PlayerSlotContainer/PlayerSlot2"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="ItemName" type="Label" parent="PlayerSlotContainer/PlayerSlot2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="PlayerSlot3" type="PanelContainer" parent="PlayerSlotContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("2_20vlf")
+slot_position = 2
+
+[node name="ItemImage" type="TextureRect" parent="PlayerSlotContainer/PlayerSlot3"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="ItemName" type="Label" parent="PlayerSlotContainer/PlayerSlot3"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="PlayerSlot4" type="PanelContainer" parent="PlayerSlotContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+script = ExtResource("2_20vlf")
+slot_position = 3
+
+[node name="ItemImage" type="TextureRect" parent="PlayerSlotContainer/PlayerSlot4"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="ItemName" type="Label" parent="PlayerSlotContainer/PlayerSlot4"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
