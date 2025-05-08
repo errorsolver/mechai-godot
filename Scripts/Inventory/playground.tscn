@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ge8tw738xd4m"]
 
-[ext_resource type="PackedScene" uid="uid://vjvp0p86yni4" path="res://Scripts/Inventory/Slot/Player/player_inventory.tscn" id="1_ac2nj"]
-[ext_resource type="PackedScene" uid="uid://buv0wj4n00mkk" path="res://Scripts/Inventory/Slot/Robot/robot_inventory.tscn" id="2_dcjcv"]
+[ext_resource type="PackedScene" uid="uid://vjvp0p86yni4" path="res://Scenes/Inventory/Player/player_inventory.tscn" id="1_ac2nj"]
+[ext_resource type="PackedScene" uid="uid://buv0wj4n00mkk" path="res://Scenes/Inventory/Robot/robot_inventory.tscn" id="2_dcjcv"]
 [ext_resource type="Script" path="res://Scripts/Inventory/Items/item.gd" id="2_gvlk4"]
 [ext_resource type="Resource" uid="uid://oarj34mn78n8" path="res://Scripts/Inventory/Items/Equipments/Armor/armour.tres" id="3_0gd7b"]
 [ext_resource type="Resource" uid="uid://b31knw15cu5bj" path="res://Scripts/Inventory/Items/Consumable/Buff/damage_buff.tres" id="4_4nje4"]

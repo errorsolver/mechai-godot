@@ -8,6 +8,10 @@ extends PanelContainer
 
 var dataItem: Item
 
+func _get_drag_data(at_position: Vector2) -> Variant:
+	_mouse_preview()
+	return self
+
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	if data is not Object:
 		return false
@@ -27,11 +31,7 @@ func loadData() -> void:
 		texture_rect.texture = null
 		label.text = ''
 
-func _get_drag_data(at_position: Vector2) -> Variant:
-	mouse_preview()
-	return self
-
-func mouse_preview() -> void:
+func _mouse_preview() -> void:
 	var preview_texture: TextureRect = TextureRect.new()
 	preview_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview_texture.size = Vector2(40, 40)
