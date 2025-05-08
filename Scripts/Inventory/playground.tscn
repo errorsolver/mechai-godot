@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ge8tw738xd4m"]
+[gd_scene load_steps=8 format=3 uid="uid://ge8tw738xd4m"]
 
 [ext_resource type="PackedScene" uid="uid://vjvp0p86yni4" path="res://Scenes/Inventory/Player/player_inventory.tscn" id="1_ac2nj"]
 [ext_resource type="PackedScene" uid="uid://buv0wj4n00mkk" path="res://Scenes/Inventory/Robot/robot_inventory.tscn" id="2_dcjcv"]
@@ -7,7 +7,35 @@
 [ext_resource type="Resource" uid="uid://b31knw15cu5bj" path="res://Scripts/Inventory/Items/Consumable/Buff/damage_buff.tres" id="4_4nje4"]
 [ext_resource type="Resource" uid="uid://cvk4bbt4a46yh" path="res://Scripts/Inventory/Items/Consumable/Repair/repair.tres" id="5_4otar"]
 
+[sub_resource type="GDScript" id="GDScript_lh833"]
+resource_name = "debug_item"
+script/source = "extends Node2D
+
+@onready var player_inventory: Control = $\"PlayerInventory\"
+@onready var robot_inventory: Control = $\"RobotInventory\"
+@onready var label_p: Label = $LabelP
+@onready var label_r: Label = $LabelR
+
+func _process(delta: float) -> void:
+	label_p.text = ''
+	label_r.text = ''
+	
+	getInfo(player_inventory, label_p)
+	getInfo(robot_inventory, label_r)
+
+func getInfo(inventory, label):
+	var slotN = 0
+	for item in inventory.Items:
+		var text = ''
+		if item != null:
+			label.text += 'Slot %d: %s: %s\\n' % [slotN, item.name, item.quantity]
+		else:
+			label.text += 'Slot %d: null\\n' % [slotN]
+		slotN += 1
+"
+
 [node name="Playground" type="Node2D"]
+script = SubResource("GDScript_lh833")
 
 [node name="PlayerInventory" parent="." instance=ExtResource("1_ac2nj")]
 offset_left = 32.0
@@ -21,3 +49,15 @@ offset_left = 1095.0
 offset_top = 53.0
 offset_right = 1095.0
 offset_bottom = 53.0
+
+[node name="LabelP" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 163.0
+offset_right = 84.0
+offset_bottom = 186.0
+
+[node name="LabelR" type="Label" parent="."]
+offset_left = 1103.0
+offset_top = 197.0
+offset_right = 1143.0
+offset_bottom = 220.0
