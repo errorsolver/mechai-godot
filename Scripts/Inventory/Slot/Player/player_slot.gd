@@ -1,4 +1,4 @@
-extends PanelContainer
+extends InventorySlot
 
 var dataItem: Item
 

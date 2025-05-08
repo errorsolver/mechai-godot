@@ -1,4 +1,4 @@
-extends PanelContainer
+extends InventorySlot
 
 @onready var robot_inventory: Control = (self.get_parent()).get_parent()
 @onready var texture_rect: TextureRect = $ItemImage

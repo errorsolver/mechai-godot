@@ -1,8 +1,8 @@
-extends Control
+extends Inventory
 
 @export var Items: Array[Item] = []
 
-@onready var slot_container: GridContainer = self.find_child('PlayerSlotContainer')
+@onready var slot_container: GridContainer = self.find_child('SlotContainer')
 
 signal refresh_inventory
 

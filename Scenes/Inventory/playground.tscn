@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://ge8tw738xd4m"]
+
+[ext_resource type="PackedScene" uid="uid://vjvp0p86yni4" path="res://Scenes/Inventory/Player/player_inventory.tscn" id="1_cmrt7"]
+[ext_resource type="Script" path="res://Scripts/Inventory/Items/item.gd" id="2_q8drq"]
+[ext_resource type="Resource" uid="uid://b31knw15cu5bj" path="res://Scripts/Inventory/Items/Consumable/Buff/damage_buff.tres" id="3_rv8a8"]
+[ext_resource type="Resource" uid="uid://caqpar5717na8" path="res://Scripts/Inventory/Items/Consumable/Buff/defense_buff.tres" id="4_2le4k"]
+[ext_resource type="Resource" uid="uid://cvk4bbt4a46yh" path="res://Scripts/Inventory/Items/Consumable/Repair/repair.tres" id="5_q2qiq"]
+[ext_resource type="Resource" uid="uid://oarj34mn78n8" path="res://Scripts/Inventory/Items/Equipments/Armor/armour.tres" id="6_fifho"]
+[ext_resource type="Resource" uid="uid://d23vtymiarw37" path="res://Scripts/Inventory/Items/Equipments/Helmet/helmet.tres" id="7_ycm7n"]
+[ext_resource type="Resource" uid="uid://bnrstbytibb58" path="res://Scripts/Inventory/Items/Equipments/Weapon/launcher.tres" id="8_3omp5"]
+[ext_resource type="Resource" uid="uid://dvtk12xo3h77x" path="res://Scripts/Inventory/Items/Equipments/Weapon/short.tres" id="9_b0a5e"]
+[ext_resource type="Resource" uid="uid://b2weg58ooq86h" path="res://Scripts/Inventory/Items/Equipments/Weapon/sniper.tres" id="10_cj0cr"]
+[ext_resource type="PackedScene" uid="uid://buv0wj4n00mkk" path="res://Scenes/Inventory/Robot/robot_inventory.tscn" id="11_irq13"]
+
+[sub_resource type="GDScript" id="GDScript_lh833"]
+resource_name = "debug_item"
+script/source = "extends Node2D
+
+@onready var player_inventory: Control = $\"PlayerInventory\"
+@onready var robot_inventory: Control = $\"RobotInventory\"
+@onready var robot_inventory2: Control = $\"RobotInventory2\"
+@onready var label_p: Label = $LabelP
+@onready var label_r: Label = $LabelR
+@onready var label_r2: Label = $LabelR2
+
+func _process(delta: float) -> void:
+	getInfo(player_inventory, label_p)
+	getInfo(robot_inventory, label_r)
+	getInfo(robot_inventory2, label_r2)
+
+func getInfo(inventory: Control, label):
+	label.text = ''
+	
+	var node_inv = inventory.get_node_or_null('%SlotContainer')
+	var slotN = 0
+	for item: Item in inventory.Items:
+		var text = ''
+		if item != null:
+			label.text += 'Slot %d: %s: %s\\n' % [node_inv.get_child(slotN).slot_position, item.name, item.quantity]
+		else:
+			label.text += 'Slot %d: null\\n' % [node_inv.get_child(slotN).slot_position]
+		slotN += 1
+"
+
+[node name="Playground" type="Node2D"]
+script = SubResource("GDScript_lh833")
+
+[node name="PlayerInventory" parent="." instance=ExtResource("1_cmrt7")]
+offset_left = 32.0
+offset_top = 23.0
+offset_right = 32.0
+offset_bottom = 23.0
+Items = Array[ExtResource("2_q8drq")]([ExtResource("3_rv8a8"), ExtResource("4_2le4k"), ExtResource("5_q2qiq"), ExtResource("6_fifho"), ExtResource("7_ycm7n"), ExtResource("8_3omp5"), ExtResource("9_b0a5e"), ExtResource("10_cj0cr")])
+
+[node name="RobotInventory" parent="." instance=ExtResource("11_irq13")]
+offset_left = 1095.0
+offset_top = 53.0
+offset_right = 1095.0
+offset_bottom = 53.0
+
+[node name="RobotInventory2" parent="." instance=ExtResource("11_irq13")]
+offset_left = 1096.0
+offset_top = 477.0
+offset_right = 1096.0
+offset_bottom = 477.0
+
+[node name="LabelP" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 32.0
+offset_right = 232.0
+offset_bottom = 55.0
+text = "Label Placeholder"
+
+[node name="LabelR" type="Label" parent="."]
+offset_left = 926.0
+offset_top = 51.0
+offset_right = 1063.0
+offset_bottom = 74.0
+text = "Label Placeholder"
+
+[node name="LabelR2" type="Label" parent="."]
+offset_left = 932.0
+offset_top = 476.0
+offset_right = 1069.0
+offset_bottom = 499.0
+text = "Label Placeholder"

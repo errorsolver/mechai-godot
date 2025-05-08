@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://buv0wj4n00mkk"]
+[gd_scene load_steps=4 format=3 uid="uid://buv0wj4n00mkk"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/Slot/Robot/robot_inventory.gd" id="1_0kdd0"]
-[ext_resource type="Script" path="res://Scripts/Inventory/Slot/Robot/robot_slot.gd" id="2_8l0m8"]
+[ext_resource type="PackedScene" uid="uid://bn6lt8kh6gtg1" path="res://Scenes/Inventory/Robot/robot_slot.tscn" id="2_67dkw"]
+
+[sub_resource type="GDScript" id="GDScript_kphic"]
+resource_name = "slot_container"
+script/source = "extends GridContainer
+
+func _ready() -> void:
+	var slot = get_children()
+	
+	for i in range(slot.size()):
+		slot[i].slot_position = i
+"
 
 [node name="RobotInventory" type="Control"]
 layout_mode = 3
@@ -12,66 +23,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0kdd0")
 
-[node name="RobotSlotContainer" type="GridContainer" parent="."]
+[node name="SlotContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-columns = 2
+columns = 4
+script = SubResource("GDScript_kphic")
 
-[node name="RobotSlot" type="PanelContainer" parent="RobotSlotContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="RobotSlot" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-script = ExtResource("2_8l0m8")
 
-[node name="ItemImage" type="TextureRect" parent="RobotSlotContainer/RobotSlot"]
+[node name="RobotSlot2" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-expand_mode = 1
 
-[node name="ItemName" type="Label" parent="RobotSlotContainer/RobotSlot"]
+[node name="RobotSlot3" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
 
-[node name="RobotSlot2" type="PanelContainer" parent="RobotSlotContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="RobotSlot4" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-script = ExtResource("2_8l0m8")
-slot_position = 1
 
-[node name="ItemImage" type="TextureRect" parent="RobotSlotContainer/RobotSlot2"]
+[node name="RobotSlot5" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-expand_mode = 1
 
-[node name="ItemName" type="Label" parent="RobotSlotContainer/RobotSlot2"]
+[node name="RobotSlot6" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
 
-[node name="RobotSlot3" type="PanelContainer" parent="RobotSlotContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="RobotSlot7" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-script = ExtResource("2_8l0m8")
-slot_position = 2
 
-[node name="ItemImage" type="TextureRect" parent="RobotSlotContainer/RobotSlot3"]
+[node name="RobotSlot8" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-expand_mode = 1
-
-[node name="ItemName" type="Label" parent="RobotSlotContainer/RobotSlot3"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="RobotSlot4" type="PanelContainer" parent="RobotSlotContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-script = ExtResource("2_8l0m8")
-slot_position = 3
-
-[node name="ItemImage" type="TextureRect" parent="RobotSlotContainer/RobotSlot4"]
-layout_mode = 2
-expand_mode = 1
-
-[node name="ItemName" type="Label" parent="RobotSlotContainer/RobotSlot4"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8

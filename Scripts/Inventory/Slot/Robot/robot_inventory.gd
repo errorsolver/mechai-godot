@@ -1,15 +1,15 @@
-extends Control
+extends Inventory
 
 var Items: Array[Item] = []
 
-@onready var robot_slot_container: GridContainer = self.get_node_or_null("RobotSlotContainer")
+@onready var robot_slot_container: GridContainer = self.get_node_or_null("SlotContainer")
 @onready var player_inventory: Node = self.get_parent().get_node('PlayerInventory')
 
-var totalSlot: int
+var totalSlot: int = 0
 
 func _ready() -> void:
 	totalSlot = robot_slot_container.get_child_count()
-	Items.resize(get_node('RobotSlotContainer').get_child_count())
+	Items.resize(get_node('SlotContainer').get_child_count())
 	if player_inventory:
 		player_inventory.refresh_inventory.connect(Callable(self, "assignToSlot"))
 
