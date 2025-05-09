@@ -1,14 +1,16 @@
 extends InventorySlot
 
-@onready var robot_inventory: Control = (self.get_parent()).get_parent()
+@onready var parent_inventory: RobotInventory = (self.get_parent()).get_parent()
+@onready var slot_container: GridContainer = %SlotContainer
 @onready var texture_rect: TextureRect = $ItemImage
 @onready var label: Label = $ItemName
 
 @export var slot_position: int = 0
 
-var dataItem: Item
+var data_item: Item
 
 func _get_drag_data(at_position: Vector2) -> Variant:
+	if !data_item: return
 	_mouse_preview()
 	return self
 
@@ -19,17 +21,29 @@ func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return true
 
 func _drop_data(at_position: Vector2, dataResource: Variant) -> void:
-	var draged_data: Item = dataResource.dataItem
-	var item_added = robot_inventory.addItem(draged_data, slot_position)
+	var draged_data: Item = dataResource.data_item
+	var item_added = parent_inventory.addItem(slot_container, draged_data, slot_position)
+	#data_item = dataResource.data_item #
 	dataResource.loadData()
+	#if item_added:
+	#else:
+		#return
+	#loadData()
+	#parent_inventory.assignToSlot(slot_container)
 
 func loadData() -> void:
-	if dataItem:
-		texture_rect.texture = dataItem.texture
-		label.text = str(dataItem.quantity)
+	if data_item:
+		texture_rect.texture = data_item.texture
+		label.text = str(data_item.quantity)
 	else:
 		texture_rect.texture = null
 		label.text = ''
+		return
+	
+	if data_item.quantity <= 0:
+		texture_rect.texture = null
+		label.text = ''
+		parent_inventory.remove_item(slot_position)
 
 func _mouse_preview() -> void:
 	var preview_texture: TextureRect = TextureRect.new()

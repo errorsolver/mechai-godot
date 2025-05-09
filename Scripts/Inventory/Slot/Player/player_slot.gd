@@ -1,16 +1,17 @@
 extends InventorySlot
 
-var dataItem: Item
+var data_item: Item
 
 @export var slot_position: int = 0
 
 @onready var player_inventory: Control = $'../../'
+@onready var slot_container: GridContainer = %SlotContainer
 @onready var texture_rect: TextureRect = $ItemImage
 @onready var label: Label = $ItemName
 
 func _get_drag_data(at_position: Vector2) -> Variant:
-	if !dataItem: return
-	if dataItem.quantity <= 0:
+	if !data_item: return
+	if data_item.quantity <= 0:
 		return
 	_mouse_preview()
 	return self
@@ -18,20 +19,20 @@ func _get_drag_data(at_position: Vector2) -> Variant:
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	if data is not Object:
 		return false
-	if not dataItem:
+	if not data_item:
 		return false
-	if data.dataItem.name == dataItem.name:
+	if data.data_item.name == data_item.name:
 		return true
 	return false
 
 func _drop_data(at_position: Vector2, dataResource: Variant) -> void:
-	var draged_data: Item = dataResource.dataItem
-	player_inventory.addItem(draged_data, slot_position)
+	var draged_data: Item = dataResource.data_item
+	player_inventory.addItem(slot_container, draged_data, slot_position)
 	dataResource.loadData()
 
 func loadData() -> void:
-	texture_rect.texture = dataItem.texture
-	label.text = str(dataItem.quantity)
+	texture_rect.texture = data_item.texture
+	label.text = str(data_item.quantity)
 
 func _mouse_preview() -> void:
 	var preview_texture: TextureRect = TextureRect.new()

@@ -1,11 +1,15 @@
+class_name RobotInventory
 extends Inventory
 
-var Items: Array[Item] = []
+#@export var Items: Array[Item] = []
 
 @onready var robot_slot_container: GridContainer = self.get_node_or_null("SlotContainer")
 @onready var player_inventory: Node = self.get_parent().get_node('PlayerInventory')
 
 var totalSlot: int = 0
+
+#func _init() -> void:
+	#super(item_arr, robot_slot_container)
 
 func _ready() -> void:
 	totalSlot = robot_slot_container.get_child_count()
@@ -16,7 +20,7 @@ func _ready() -> void:
 func getItems() -> Array[Item]:
 	return Items
 
-func addItem(drag_item: Item, pos: int) -> bool:
+func addItem(slot_container, drag_item: Item, pos: int) -> bool:
 	var item_duplicate: Item = drag_item.duplicate(true)
 	item_duplicate.quantity = 1
 	
@@ -28,10 +32,14 @@ func addItem(drag_item: Item, pos: int) -> bool:
 		Items[pos] = item_duplicate
 	
 	drag_item.quantity -= 1
-	assignToSlot()
+	#assignToSlot(Items, robot_slot_container)
+	assignToSlot(slot_container)
 	return true
 
-func assignToSlot() -> void:
+func remove_item(index: int) -> void:
+	Items[index] = null
+
+func assignToSlot(slot_container) -> void:
 	for i in range(totalSlot):
 		if Items[i] == null:
 			continue
@@ -39,8 +47,5 @@ func assignToSlot() -> void:
 		if Items[i].quantity <= 0:
 			remove_item(i)
 		
-		robot_slot_container.get_child(i).dataItem = Items[i]
-		robot_slot_container.get_child(i).loadData()
-
-func remove_item(index: int) -> void:
-	Items[index] = null
+		slot_container.get_child(i).data_item = Items[i]
+		slot_container.get_child(i).loadData()

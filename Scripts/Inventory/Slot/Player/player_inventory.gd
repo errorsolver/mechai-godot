@@ -1,16 +1,20 @@
+class_name PlayerInventory
 extends Inventory
 
-@export var Items: Array[Item] = []
-
-@onready var slot_container: GridContainer = self.find_child('SlotContainer')
+@onready var player_slot_container: GridContainer = self.find_child('SlotContainer')
 
 signal refresh_inventory
 
 func _ready() -> void:
-	_assignToSlot()
-	Items.resize(slot_container.get_child_count())
+	assignToSlot(player_slot_container)
+	
+	for i in Items:
+		print(i)
+	
+	#print('item: ', Items)
+	#Items.resize(player_slot_container.get_child_count())
 
-func _assignToSlot() -> void:
+func assignToSlot(slot_container) -> void:
 	if !Items:
 		return
 	
@@ -22,14 +26,14 @@ func _assignToSlot() -> void:
 		
 		var slot = slots[i]
 		if slot:
-			slot.dataItem = item
+			slot.data_item = item
 			slot.loadData()
 			i += 1
 
-func addItem(drag_item: Item, pos: int) -> bool:
+func addItem(slot_container, drag_item: Item, pos: int) -> bool:
 	var item_duplicate: Item = drag_item.duplicate(true)
-	
 	item_duplicate.quantity = 1
+	
 	if Items[pos] and item_duplicate.name == Items[pos].name:
 		Items[pos].quantity += 1
 	elif Items[pos]:
@@ -38,6 +42,7 @@ func addItem(drag_item: Item, pos: int) -> bool:
 		return false
 	
 	drag_item.quantity -= 1
-	_assignToSlot()
+	#assignToSlot(Items, player_slot_container)
+	assignToSlot(slot_container)
 	emit_signal("refresh_inventory")
 	return true
