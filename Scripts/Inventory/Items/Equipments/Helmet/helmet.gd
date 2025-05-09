@@ -1,4 +1,4 @@
-class_name Equipment
+class_name Helmet
 extends Item
 
 @export_group('Damage Reduction')
@@ -7,10 +7,10 @@ extends Item
 var health: int
 var defense: int
 
-func _ready() -> void :
-	isStackable = false
-	isConsumable = false
-	isEquipable = true
+func _ready() -> void:
+	is_stackable = false
+	is_consumable = false
+	is_equipable = true
 	
 	match type:
 		"Aggresive":
@@ -26,5 +26,5 @@ func _ready() -> void :
 			health = 0
 			defense = 0
 
-func Block(dmg_total: int) -> int :
+func Block(dmg_total: int) -> int:
 	return dmg_total - defense

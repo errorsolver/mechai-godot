@@ -10,9 +10,9 @@ var shape: String
 var stamina_consumption: int
 
 func _ready() -> void:
-	isStackable = false
-	isConsumable = false
-	isEquipable = true
+	is_stackable = false
+	is_consumable = false
+	is_equipable = true
 	
 	match type:
 		"Short":

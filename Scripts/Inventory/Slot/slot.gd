@@ -1,12 +1,14 @@
 class_name InventorySlot
 extends PanelContainer
 
-@onready var parent_inventory
-@onready var texture_rect: TextureRect = $ItemImage
-@onready var slot_container: GridContainer = %SlotContainer
 @export var slot_position: int = 0
 
 var data_item: Item
+
+@onready var parent_inventory
+@onready var texture_rect: TextureRect = $ItemImage
+@onready var slot_container: GridContainer = %SlotContainer
+@onready var label: Label = $ItemName
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if !data_item: return
@@ -15,11 +17,11 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	_mouse_preview()
 	return self
 
-func _drop_data(_at_position: Vector2, dataResource: Variant) -> void:
-	var draged_data: Item = dataResource.data_item
+func _drop_data(_at_position: Vector2, data_resource: Variant) -> void:
+	var draged_data: Item = data_resource.data_item
 	var item_added = parent_inventory.add_item(slot_container, draged_data, slot_position)
 	if item_added:
-		dataResource.load_data()
+		data_resource.load_data()
 
 func clear_tooltip():
 	tooltip_text = ''

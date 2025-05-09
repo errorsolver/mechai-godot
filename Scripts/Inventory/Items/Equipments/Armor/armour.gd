@@ -7,9 +7,9 @@ extends Item
 @export var SNIPER = 0
 
 func _ready() -> void :
-	isStackable = false
-	isConsumable = false
-	isEquipable = true
+	is_stackable = false
+	is_consumable = false
+	is_equipable = true
 	
 	var dmgBlocked: int = block('short', 10)
 	print(dmgBlocked)

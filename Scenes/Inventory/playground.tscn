@@ -56,24 +56,24 @@ offset_bottom = 55.0
 text = "Label Placeholder"
 
 [node name="LabelR" type="Label" parent="."]
-offset_left = 926.0
-offset_top = 51.0
-offset_right = 1063.0
-offset_bottom = 74.0
+offset_left = 1262.0
+offset_top = 42.0
+offset_right = 1399.0
+offset_bottom = 65.0
 text = "Label Placeholder"
 
 [node name="LabelR2" type="Label" parent="."]
-offset_left = 924.0
-offset_top = 397.0
-offset_right = 1061.0
-offset_bottom = 420.0
+offset_left = 1263.0
+offset_top = 311.0
+offset_right = 1400.0
+offset_bottom = 334.0
 text = "Label Placeholder"
 
 [node name="LabelR3" type="Label" parent="."]
-offset_left = 920.0
-offset_top = 649.0
-offset_right = 1057.0
-offset_bottom = 672.0
+offset_left = 1271.0
+offset_top = 641.0
+offset_right = 1408.0
+offset_bottom = 664.0
 text = "Label Placeholder"
 
 [node name="PlayerInventory" parent="." instance=ExtResource("1_cmrt7")]
@@ -84,19 +84,19 @@ offset_bottom = 23.0
 Items = Array[ExtResource("2_41dyn")]([ExtResource("3_csg14"), ExtResource("4_0anfy"), ExtResource("5_y11g4"), ExtResource("6_hqcca"), ExtResource("7_1vibf"), ExtResource("8_8kksa"), ExtResource("9_6iaii"), ExtResource("10_ci6ay")])
 
 [node name="RobotInventory" parent="." instance=ExtResource("11_irq13")]
-offset_left = 1095.0
-offset_top = 53.0
-offset_right = 1095.0
-offset_bottom = 53.0
+offset_left = 1024.0
+offset_top = 38.0
+offset_right = 1024.0
+offset_bottom = 38.0
 
 [node name="RobotInventory2" parent="." instance=ExtResource("11_irq13")]
-offset_left = 1103.0
-offset_top = 393.0
-offset_right = 1103.0
-offset_bottom = 393.0
+offset_left = 1029.0
+offset_top = 308.0
+offset_right = 1029.0
+offset_bottom = 308.0
 
 [node name="RobotInventory3" parent="." instance=ExtResource("11_irq13")]
-offset_left = 1097.0
-offset_top = 648.0
-offset_right = 1097.0
-offset_bottom = 648.0
+offset_left = 1027.0
+offset_top = 640.0
+offset_right = 1027.0
+offset_bottom = 640.0

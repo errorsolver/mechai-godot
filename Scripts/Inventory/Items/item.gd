@@ -7,21 +7,12 @@ extends Resource
 @export var name: String = ''
 @export var description: String = ''
 @export var quantity: int = 0
-@export var isStackable: bool = false
-@export var isConsumable: bool = false
-@export var isEquipable: bool = false
+@export var is_stackable: bool = false
+@export var is_consumable: bool = false
+@export var is_equipable: bool = false
 
-func initAll(node: Node) -> void:
-	if not node:
-		print('no node')
-		return
-		
-	for child in node.get_children():
-		if child.name == 'Texture':
-			child.texture = texture
+func substract(total_used: int) -> void:
+	quantity -= total_used
 
-func substract(totalUsed: int):
-	quantity -= totalUsed
-	
 func str() -> String:
 	return "Item Name: " + name + ", Value: " + str(quantity)

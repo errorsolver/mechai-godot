@@ -5,9 +5,9 @@ extends Item
 @export var max_turn: int = 3
 
 func _ready() -> void:
-	isStackable = true
-	isConsumable = true
-	isEquipable = false
+	is_stackable = true
+	is_consumable = true
+	is_equipable = false
 
 func buff() -> Array[int]:
 	return [extra_defense, max_turn]
