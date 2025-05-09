@@ -33,6 +33,9 @@ func _drop_data(_at_position: Vector2, dataResource: Variant) -> void:
 func loadData() -> void:
 	texture_rect.texture = data_item.texture
 	label.text = str(data_item.quantity)
+	
+	if data_item:
+		updateTooltip(data_item.name, data_item.description)
 
 func _mouse_preview() -> void:
 	var preview_texture: TextureRect = TextureRect.new()

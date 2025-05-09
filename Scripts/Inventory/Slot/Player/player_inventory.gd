@@ -3,6 +3,7 @@ extends Inventory
 
 @onready var player_slot_container: GridContainer = self.find_child('SlotContainer')
 
+@warning_ignore("unused_signal")
 signal refresh_inventory
 
 func _ready() -> void:

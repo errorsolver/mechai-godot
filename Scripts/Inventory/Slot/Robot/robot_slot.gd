@@ -33,12 +33,15 @@ func loadData() -> void:
 	else:
 		texture_rect.texture = null
 		label.text = ''
+		clearTooltip()
 		return
 	
 	if data_item.quantity <= 0:
 		texture_rect.texture = null
 		label.text = ''
 		parent_inventory.remove_item(slot_position)
+	
+	updateTooltip(data_item.name, data_item.description)
 
 func _mouse_preview() -> void:
 	var preview_texture: TextureRect = TextureRect.new()
