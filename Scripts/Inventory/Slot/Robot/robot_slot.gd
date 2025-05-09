@@ -1,3 +1,4 @@
+class_name RobotSlot
 extends InventorySlot
 
 @onready var parent_inventory: RobotInventory = (self.get_parent()).get_parent()
@@ -22,18 +23,18 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 func _drop_data(_at_position: Vector2, dataResource: Variant) -> void:
 	var draged_data: Item = dataResource.data_item
-	var item_added = parent_inventory.addItem(slot_container, draged_data, slot_position)
+	var item_added = parent_inventory.add_item(slot_container, draged_data, slot_position)
 	if item_added:
-		dataResource.loadData()
+		dataResource.load_data()
 
-func loadData() -> void:
+func load_data() -> void:
 	if data_item:
 		texture_rect.texture = data_item.texture
 		label.text = str(data_item.quantity)
 	else:
 		texture_rect.texture = null
 		label.text = ''
-		clearTooltip()
+		clear_tooltip()
 		return
 	
 	if data_item.quantity <= 0:
@@ -41,7 +42,7 @@ func loadData() -> void:
 		label.text = ''
 		parent_inventory.remove_item(slot_position)
 	
-	updateTooltip(data_item.name, data_item.description)
+	update_tooltip(data_item.name, data_item.description)
 
 func _mouse_preview() -> void:
 	var preview_texture: TextureRect = TextureRect.new()
