@@ -36,28 +36,21 @@ layout_mode = 2
 
 [node name="RobotSlot2" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = 1
 
 [node name="RobotSlot3" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = 2
 
 [node name="RobotSlot4" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = 3
 
 [node name="RobotSlot5" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = 4
 
 [node name="RobotSlot6" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = 5
 
 [node name="RobotSlot7" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = 6
 
 [node name="RobotSlot8" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = 7

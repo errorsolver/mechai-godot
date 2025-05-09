@@ -27,9 +27,6 @@ func add_item(slot_container: GridContainer, drag_item: Item, pos: int) -> bool:
 	assign_to_slot(slot_container)
 	return true
 
-func remove_item(index: int) -> void:
-	Items[index] = null
-
 func assign_to_slot(slot_container: GridContainer) -> void:
 	for i in range(totalSlot):
 		if Items[i] == null:
@@ -40,3 +37,6 @@ func assign_to_slot(slot_container: GridContainer) -> void:
 		
 		slot_container.get_child(i).data_item = Items[i]
 		slot_container.get_child(i).load_data()
+
+func remove_item(index: int) -> void:
+	Items[index] = null
