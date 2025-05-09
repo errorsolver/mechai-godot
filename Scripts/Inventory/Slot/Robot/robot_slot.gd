@@ -9,27 +9,22 @@ extends InventorySlot
 
 var data_item: Item
 
-func _get_drag_data(at_position: Vector2) -> Variant:
+func _get_drag_data(_at_position: Vector2) -> Variant:
 	if !data_item: return
 	_mouse_preview()
 	return self
 
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	if data is not Object:
 		return false
 		
 	return true
 
-func _drop_data(at_position: Vector2, dataResource: Variant) -> void:
+func _drop_data(_at_position: Vector2, dataResource: Variant) -> void:
 	var draged_data: Item = dataResource.data_item
 	var item_added = parent_inventory.addItem(slot_container, draged_data, slot_position)
-	#data_item = dataResource.data_item #
-	dataResource.loadData()
-	#if item_added:
-	#else:
-		#return
-	#loadData()
-	#parent_inventory.assignToSlot(slot_container)
+	if item_added:
+		dataResource.loadData()
 
 func loadData() -> void:
 	if data_item:
