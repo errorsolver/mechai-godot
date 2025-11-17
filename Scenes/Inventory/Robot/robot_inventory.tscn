@@ -33,32 +33,24 @@ script = SubResource("GDScript_kphic")
 
 [node name="RobotSlot" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = null
 
 [node name="RobotSlot2" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = null
 
 [node name="RobotSlot3" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = null
 
 [node name="RobotSlot4" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = null
 
 [node name="RobotSlot5" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = null
 
 [node name="RobotSlot6" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = null
 
 [node name="RobotSlot7" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = null
 
 [node name="RobotSlot8" parent="SlotContainer" instance=ExtResource("2_67dkw")]
 layout_mode = 2
-slot_position = null
